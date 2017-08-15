@@ -26,8 +26,6 @@ change?
 
 
 
-
-
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
 
