@@ -1,0 +1,120 @@
+﻿///////////////////////////////////////////////////
+//                                               //
+//  Spickzettel für die wichtigsten Git-Befehle  //
+//                                               //
+///////////////////////////////////////////////////
+
+
+git log
+°°°°°°°
+  Zeit den Projektverlauf ("history log").
+  Jeder Eintrage besitzt folgendes Format:
+    commit [commit-ID]
+    Author: [Autorname evtl. inkl. email etc.]
+    Date: TTT MMM TT HH:ii:SS [+|-]HHii
+    [Leerzeile]
+    [Eingerückter Kommentar, Ein-/mehrzeiliger evtl. mit Leerzeilen]
+    [Leerzeile]
+
+
+
+git log --stat
+°°°°°°°°°°°°°°
+  Wie "git log", zeigt aber am Ende jedes Eintraages noch eine Zusammenfassung,
+  welche Dateien geändert wurden und wie (Einfügen & Entfern):
+    [Datei 1] | [Anzahl der Änerungen] [1 "+" pro Einfügen][1 "-" pro Entfernen]
+    [Datei 2] | [Anzahl der Änerungen] [1 "+" pro Einfügen][1 "-" pro Entfernen]
+    [...]
+    [#Dateien] files changed, [#Entfernt] insertations(+), [#Entfernt] deletions(-)
+
+
+
+git diff [commit-ID 1] [commit-ID 1]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Zeigt die Unterschiede zwischen zwei Commits in folgendem Format an:
+    diff --git a/game.js b/game.js
+    index 8b87936..5daadb0 100644
+    --- a/game.js
+    +++ b/game.js
+
+
+git --version
+°°°°°°°°°°°°°
+  Zeigt Git-Versionsinformationen an:
+    git version [#].[#].[#].[windows|linux(?)|osx(?)].[#]
+
+
+git clone [Repositorium-URL]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Lädt das gesamte Repositorium herunter. Das Stammverzeichnis wird im
+  aktuellen Arbeitsverzeichnis erstellt. Nach dem klonen sollte das Arbeits-
+  verzeichnis ins Stammverzeichnis geändert werden, damit folgende Git-Befehle
+  funktionieren!
+
+
+git config --global color.ui auto
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Bewirkt, dass "git diff" Farben zur darstellung nutzt.
+  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
+  (...war bei mir schon an, konnte ich also nicht testen...)
+
+
+git checkout [commit-ID]
+°°°°°°°°°°°°°°°°°°°°°°°°
+  Stellt (temporär) den Zustand des gerwünschten Commits wieder her. Wenn nicht
+  am neusten Commit gearbeitet wird nennt man dies den "detached HEAD state".
+  Der neuste Commit wird "HEAD" genannt.
+  (siehe auch "git checkout -b [new-branch_name]")
+
+
+git checkout -b [new_branch_name]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Erstellt einen neuen Zweig (alias "brach", "fork", "Abzweigung"...). Zuvor
+  muss mit "git checkout [commit-ID]" ein Commit gewählt worden sein (nicht der
+  neuste, sondern ein älterer).
+
+
+git config --global core.editor "'[programm]' [switches]"
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Ändert den Standard-Texteditor für Git. [programm] muss enteder generell in
+  Singlequotes gesetzt werden oder nur wenn Zeichen vorkommen die in Bash als
+  Escape-Sequenz geschrieben werden müssen (wie z.B. "\ " für " " oder "\\" für
+  "\"). Desweiteren muss das Pfadtrennzteichen "\" unter Windows anscheinend
+  durch "/" (...oder es erspart die "//" Escape-Sequenz?).
+
+
+git config --global push.default upstram
+git config --global merge.conflictstyle diff3
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Öhm... keine Ahnung... irgendwelche Config-Setups...
+
+
+git init
+°°°°°°°°
+  Initialisiert ein lokales Repositorium im aktuellen Arbeitsverzeichnis.
+  Einfach ausgedrückt: Es macht aus dem aktuellen Arbeitsverzeichnis ein
+  Repositorium indem es ein Unterverzeichnis namens ".git" anlegt und
+  alles Mögliche an "Zeuchs" reinschreibt. ;)
+
+
+git status
+°°°°°°°°°°
+  Gibt den allgemeinen Status des aktuellen Repositoriums aus.
+  Z.B.: "branch", "untracked files", "most recent commit" u.ä. -
+  Nützlich vor jedem "git commit" bzw. "git add".
+
+
+git add [Dateiname]
+°°°°°°°°°°°°°°°°°°°
+  Fügt eine Datei zur "Staging Area" (bedeutet etwa "Sammelpunk") hinzu und
+  definiert somit welche Änderungen - oder auch neue bzw. bislang nich
+  getrackte Dateien - zum nächten Commit gehören (d.h. beim nächsten Aufruf
+  von "git commit" berücksichtigt werden).
+
+
+git rm --cached [Dateiname]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Entfernt eine Datei aus der "Staging Area", aber nicht aus dem Repository.
+  Nützlich wenn bei "git add" eine falsche Datei angegeben wurdel.
+
+
