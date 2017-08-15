@@ -1,0 +1,53 @@
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+    I did not have to read passages of the files that have't been worked on.
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+    I can evolve useful and efficent patterns to accomplish the goals.
+    I can get rid of bad behaviours in my coding style.
+    When procuding bad code leading into a "dead end", I can easily roll back
+    to the point before I started "destroying" my code.
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+    con: more manual work and thus more time consuming
+    pro: better controll, e.g I can do quick prototyping for testing purposes
+         and discard everything without "cluttering" the change history.
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+    Some projects are made up of many files which are cross-related. For example
+    "css" and "html" files. Here you might work on multiple files at a time.
+    On the other hand, some projects are made of a single big file or multiple
+    files that are not related to each other in a way, that you work on them
+    simulaniuously. For example, if you are writing a novel, you might have
+    only a single big file or you might save each chapter in a separared file
+    (in the beginning, joining them at the very end) and most likely won't have
+    to edit more than one at a time.
+
+How can you use the commands git log and git diff to view the history of files?
+
+    "git log" prints out all commits (from latest to oldest) incl. commit IDs
+    and Comments. The IDs can be used to show differences between two commits
+    when used with "git diff [ID1] [ID2]". For a quick overview of "how much"
+    was changed per commit you can also use "git log --status".
+
+
+How might using version control make you more confident to make changes that
+could break something?
+
+    A) You can easily redo by going back to an older 
+    B) You can locate the bug quite easily using "git diff"
+    C) You can even mention the risk in the comment of an commit like:
+       "this might break xyz, but it's worth a try because of blahblah"
+
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    I will try using it for all my projects. Just all of them!
