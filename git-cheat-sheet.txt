@@ -42,6 +42,21 @@ git clone [Repositorium-URL]
   funktionieren!
 
 
+git commit
+°°°°°°°°°°
+  Löst einen Commit aus. Zunächst wird der vordefinierte Standardeditor
+  geöffnet um einen Mehrzeiligen Kommentar zu schreiben (für Einzeiler
+  siehe "git commit -m"). Ein leerer Kommentar bricht den Commit ab.
+  Der original Standardeditor ist "VIM". Zum ändern des Standerdeditors
+  siehe "git config --global core.editor".
+
+
+git commit -m "[Kommentar]"
+°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Löst einen Commit aus. "-m" steht für "message", [Kommentar] ist ein
+  einzeiliger Kommentar. Für Mehrzeiler siehe "git commit".
+
+
 git config --global color.ui auto
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Bewirkt, dass "git diff" Farben zur darstellung nutzt.
