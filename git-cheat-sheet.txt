@@ -27,6 +27,16 @@ git checkout [commit-ID]
   (siehe auch "git checkout -b [new-branch_name]")
 
 
+git branch
+°°°°°°°°°°
+  Zeigt alle Zweige an. Der mit Stern (*) markierte ist der aktuell gewählte.
+
+
+git branch [branch_name]
+°°°°°°°°°°°°°°°°°°°°°°°°
+  Erstellt einen Zweige mit dem Namen "branch_name".
+
+
 git checkout -b [new_branch_name]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   !!! FOLGEDE ERKLÄRUNG IST VERMUTLICH FALSCH !!!
@@ -35,9 +45,9 @@ git checkout -b [new_branch_name]
   neuste, sondern ein älterer).
 
 
-git checkout master
-°°°°°°°°°°°°°°°°°°°
-  Wechselt zum Master-Commit, d.h. zum neusten Commit.
+git checkout [branch_name]
+°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Wechselt den Zweig zu "branch_name" und dort zum neusten Commit.
 
 
 git clone [Repositorium-URL]
