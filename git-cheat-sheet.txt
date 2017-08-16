@@ -28,7 +28,6 @@ git log --stat
     [#Dateien] files changed, [#Entfernt] insertations(+), [#Entfernt] deletions(-)
 
 
-
 git diff [commit-ID 1] [commit-ID 1]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Zeigt die Unterschiede zwischen zwei Commits in folgendem Format an:
@@ -36,6 +35,17 @@ git diff [commit-ID 1] [commit-ID 1]
     index 8b87936..5daadb0 100644
     --- a/game.js
     +++ b/game.js
+
+
+git diff
+°°°°°°°°
+  Wie "git diff [commit-ID 1] [commit-ID 1]", nur dass Arbeitsverzeichnis
+  und Staging Area miteinander verglichen werden.
+
+
+git diff --staged
+°°°°°°°°°°°°°°°°°
+  Wie "git diff", nur dass Staging Area und aktueller Commit verglichen werden.
 
 
 git --version
@@ -117,4 +127,9 @@ git rm --cached [Dateiname]
   Entfernt eine Datei aus der "Staging Area", aber nicht aus dem Repository.
   Nützlich wenn bei "git add" eine falsche Datei angegeben wurdel.
 
+
+git reset --hard
+°°°°°°°°°°°°°°°°
+  Setzt Änderungen in Staging Area und/oder Arbeitsverzeichnis zurück auf den
+  Stand des aktuell gewählten Commits (siehe "git checkout").
 
