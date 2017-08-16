@@ -140,6 +140,13 @@ git log
     [Leerzeile]
 
 
+git log --graph [--oneline] [branch_1] [branch_2] [...]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Zeigt eine Textgrafik der Verzweigungen an.
+  [--oneline] Zeigt jeden Commit als Einzeiler an und jeweils nur die ersten
+  sieben Zeichen der Commit-ID sowie die erste Zeile des Kommentares.
+
+
 git log --stat
 °°°°°°°°°°°°°°
   Wie "git log", zeigt aber am Ende jedes Eintraages noch eine Zusammenfassung,
