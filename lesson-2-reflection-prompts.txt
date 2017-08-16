@@ -34,6 +34,14 @@ change?
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
 
+  It might be useful to create a new brach to implement a feature, either
+  because the feature might be experimental and it's unsure if it get's into
+  the final product or because it's "dangerous" and might brake the code or
+  because it's hard and long lasting work to get it implemented and you want
+  to still have a working version without the new feature.
+  Other reasons for creating branches might be to mark different release
+  versions or to create a demo version with a reduced feature set or do a
+  portations to diffenerent platforms.
 
 
 How do the diagrams help you visualize the branch structure?
