@@ -34,6 +34,11 @@ git checkout -b [new_branch_name]
   neuste, sondern ein älterer).
 
 
+git checkout master
+°°°°°°°°°°°°°°°°°°°
+  Wechselt zum Master-Commit, d.h. zum neusten Commit.
+
+
 git clone [Repositorium-URL]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Lädt das gesamte Repositorium herunter. Das Stammverzeichnis wird im
