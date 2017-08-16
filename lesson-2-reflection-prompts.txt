@@ -46,6 +46,13 @@ organized? How would branches help?
 
 How do the diagrams help you visualize the branch structure?
 
+  This is a strange question. Well, a diagram makes the branch structure
+  visible... that's all to it. You can see the relations between the branches
+  and which parent (or "ancester") they have in common. Although not mentioned
+  in the lesson so far, I'm pretty sure you cannot only see split points but
+  also merging point. Merging point should be even easier to spot, since every
+  commit stores it's signle parent and I guess that's also true for multiple
+  parents ...maybe whole patchwork families. ;)
 
 
 What is the result of merging two branches together? Why do we represent it in
