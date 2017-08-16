@@ -29,6 +29,7 @@ git checkout [commit-ID]
 
 git checkout -b [new_branch_name]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  !!! FOLGEDE ERKLÄRUNG IST VERMUTLICH FALSCH !!!
   Erstellt einen neuen Zweig (alias "brach", "fork", "Abzweigung"...). Zuvor
   muss mit "git checkout [commit-ID]" ein Commit gewählt worden sein (nicht der
   neuste, sondern ein älterer).
