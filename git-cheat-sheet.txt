@@ -82,14 +82,14 @@ git commit -m "[Kommentar]"
   einzeiliger Kommentar. Für Mehrzeiler siehe "git commit".
 
 
-git config --global color.ui auto
+git config [--global] color.ui auto
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Bewirkt, dass "git diff" Farben zur darstellung nutzt.
   Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
   (...war bei mir schon an, konnte ich also nicht testen...)
 
 
-git config --global core.autocrlf true
+git config [--global] core.autocrlf true
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Bewirkt, dass es keine Probleme mit Linux- und Windows-Zeilenumbrüchen gibt.
   Wie das tatsächlich umgesetzt wird ist mir unbekannt. Da die Zeilenumbrüche
@@ -97,18 +97,20 @@ git config --global core.autocrlf true
   es zu beginn von Udacity geklont habe, sieht es so aus, als ob bei
   "git clone", "git push" und "git pull" (also beim hoch- oder herunterladen)
   die Zeilenumbrüche zwischen LF nach CRLF gewandelt werden.
+  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
 
 
-git config --global core.editor "'[programm]' [switches]"
+git config [--global] core.editor "'[programm]' [switches]"
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Ändert den Standard-Texteditor für Git. [programm] muss enteder generell in
   Singlequotes gesetzt werden oder nur wenn Zeichen vorkommen die in Bash als
   Escape-Sequenz geschrieben werden müssen (wie z.B. "\ " für " " oder "\\" für
   "\"). Desweiteren muss das Pfadtrennzteichen "\" unter Windows anscheinend
   durch "/" (...oder es erspart die "//" Escape-Sequenz?).
+  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
 
 
-git config --global credential.helper wincred
+git config [--global] credential.helper wincred
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Aktiviert den "credential helper" in git. Normalerweise muss bei jedem
   Zugriff auf ein Online-Repositorium (z.B. GitHub oder GitLab) der Benutzer-
@@ -116,22 +118,25 @@ git config --global credential.helper wincred
   Nutzung von "git clone", "git fetch", "git pull" oder "git push"). Der
   "credential helper" speichert die Benutzerdaten, so dass sie nur einmal ein-
   gegeben werden müssen.
+  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
   ANMERKUNG: Ich weiß noch nicht, ob Name und Passwort nur für die aktuelle
              Sitzung oder permanent gespeichert werden. Entsprechend weiß ich
              ebensowenig WO die Daten gespeichert werden und in welcher Form
              (d.h. ob als Klartext oder verschlüsselt).
 
 
-git config --global merge.conflictstyle diff3
+git config [--global] merge.conflictstyle diff3
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Öhm... keine Ahnung... irgendwelche Config-Setups...
   (Vorschlag im Udacity-Kurs ohne nähere Erklärung)
+  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
 
 
-git config --global push.default upstram
+git config [--global] push.default upstram
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Öhm... keine Ahnung... irgendwelche Config-Setups...
   (Vorschlag im Udacity-Kurs ohne nähere Erklärung)
+  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
 
 
 git diff
