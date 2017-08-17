@@ -150,6 +150,7 @@ git config [--global] core.editor "'[programm]' [switches]"
 
 git config [--global] credential.helper wincred
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Verfügbar ab Git Version "1.7.10" (z.Zt. aktuelle Version ist "2.14.1")
   Aktiviert den "credential helper" in git. Normalerweise muss bei jedem
   Zugriff auf ein Online-Repositorium (z.B. GitHub oder GitLab) der Benutzer-
   name und das Benutzerpasswort bei jedem Zugriff angegeben werden (d.h. bei
@@ -161,6 +162,12 @@ git config [--global] credential.helper wincred
              Sitzung oder permanent gespeichert werden. Entsprechend weiß ich
              ebensowenig WO die Daten gespeichert werden und in welcher Form
              (d.h. ob als Klartext oder verschlüsselt).
+  ANMERKUNG: "wincred" scheint grundsätzlich nur der richtige Wert für Windows
+             zu sein, allerdings bin ich unsicher ob nur für die CMD-Variante
+             von Git oder auch für die Bash-Variante. Bei der von mir genutzten
+             Bash-Variante für Windows ist standardgemäß "manager" statt
+             "wincred" eingestellt. Sollten Probleme bzw. unerwünschtes
+             Verhalten auftreten, dann werde ich mich damit auseinandersetzen.
 
 
 git config [--global] merge.conflictstyle diff3
