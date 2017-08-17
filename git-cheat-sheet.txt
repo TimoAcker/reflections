@@ -89,6 +89,16 @@ git config --global color.ui auto
   (...war bei mir schon an, konnte ich also nicht testen...)
 
 
+git config --global core.autocrlf true
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Bewirkt, dass es keine Probleme mit Linux- und Windows-Zeilenumbrüchen gibt.
+  Wie das tatsächlich umgesetzt wird ist mir unbekannt. Da die Zeilenumbrüche
+  in meinem lokalen Udacity-Übungs-Repositorium überall CRLF sind, obwohl ich
+  es zu beginn von Udacity geklont habe, sieht es so aus, als ob bei
+  "git clone", "git push" und "git pull" (also beim hoch- oder herunterladen)
+  die Zeilenumbrüche zwischen LF nach CRLF gewandelt werden.
+
+
 git config --global core.editor "'[programm]' [switches]"
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Ändert den Standard-Texteditor für Git. [programm] muss enteder generell in
