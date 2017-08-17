@@ -89,6 +89,20 @@ git commit --amend
   oder der Kommentar unvollständig ist. In diesem Fall kann man hier mit
   "git commit --amend" schnell und einfach den Kommentar ändern, ohne dass es
   Probleme mit sich führt. In ALLEN anderen Fällen NICHT! Also VORSICHT!
+  ANMERKUNG: Der Befehl kann auch genutzt werden um Änderungen an Dateien an
+             sich statt nur dem Kommentar durchzuführen. Ein gefundenes
+             Beispiel:
+               $ git add another/changed/file.txt
+               $ git commit --amend -m "message"
+             Statt "another/changed/file.txt" ist "further/changed/file.txt"
+             genau so gut möglich.
+
+
+git commit --amend -m "[neuer_Kommentar]"
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Wie "git commit --amend", aber nur für einen einzeiligen Kommentar. Da bei
+  "git commit --amend" der zu ändernde Kommentar im externen Standardtexteditor
+  geöffnet wird ist dieser Befehl oft nicht wirklich eine Arbeitserleichterung.
 
 
 git commit -m "[Kommentar]"
