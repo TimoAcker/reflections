@@ -76,6 +76,21 @@ git commit
   siehe "git config --global core.editor".
 
 
+git commit --amend
+°°°°°°°°°°°°°°°°°°
+  Ändert den Kommentar des zuletzt getätigten Commits. Wie bei "git commit"
+  wird der Standardtexteditor hierzu geöffnet. Tatsächlich wird bei "git commit
+  --amend" der letzte Commit gelöscht und mit dem geändertem Kommentar neu
+  abgesetzt! Das beudeutet, dass sich die Commit-ID ändert! Der Commit darf
+  noch nicht mit "git push" in ein Online-Repositorium hochgeladen worden sein,
+  sonst gestaltet sich das Ändern des Kommentares um einiges komplizierter...
+  Grundsätzlich ist der Befehl sinnvoll, wenn man DIREKT NACH dem Aufruf von
+  "git commit" bzw. "git commit -m" bemerkt, dass man sich z.B. vertippt hat
+  oder der Kommentar unvollständig ist. In diesem Fall kann man hier mit
+  "git commit --amend" schnell und einfach den Kommentar ändern, ohne dass es
+  Probleme mit sich führt. In ALLEN anderen Fällen NICHT! Also VORSICHT!
+
+
 git commit -m "[Kommentar]"
 °°°°°°°°°°°°°°°°°°°°°°°°°°°
   Löst einen Commit aus. "-m" steht für "message", [Kommentar] ist ein
