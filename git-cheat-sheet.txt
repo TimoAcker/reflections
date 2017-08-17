@@ -59,9 +59,9 @@ git checkout [branch_name]
   Wechselt den Zweig zu "branch_name" und dort zum neusten Commit.
 
 
-git clone [Repositorium-URL]
+git clone [Remote-Repositorium-URL]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°
-  Lädt das gesamte Repositorium herunter. Das Stammverzeichnis wird im
+  Lädt das gesamte Remote-Repositorium herunter. Das Stammverzeichnis wird im
   aktuellen Arbeitsverzeichnis erstellt. Nach dem klonen sollte das Arbeits-
   verzeichnis ins Stammverzeichnis geändert werden, damit folgende Git-Befehle
   funktionieren!
@@ -82,7 +82,7 @@ git commit --amend
   wird der Standardtexteditor hierzu geöffnet. Tatsächlich wird bei "git commit
   --amend" der letzte Commit gelöscht und mit dem geändertem Kommentar neu
   abgesetzt! Das beudeutet, dass sich die Commit-ID ändert! Der Commit darf
-  noch nicht mit "git push" in ein Online-Repositorium hochgeladen worden sein,
+  noch nicht mit "git push" in ein Remote-Repositorium hochgeladen worden sein,
   sonst gestaltet sich das Ändern des Kommentares um einiges komplizierter...
   Grundsätzlich ist der Befehl sinnvoll, wenn man DIREKT NACH dem Aufruf von
   "git commit" bzw. "git commit -m" bemerkt, dass man sich z.B. vertippt hat
@@ -152,7 +152,7 @@ git config [--global] credential.helper wincred
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Verfügbar ab Git Version "1.7.10" (z.Zt. aktuelle Version ist "2.14.1")
   Aktiviert den "credential helper" in git. Normalerweise muss bei jedem
-  Zugriff auf ein Online-Repositorium (z.B. GitHub oder GitLab) der Benutzer-
+  Zugriff auf ein Remote-Repositorium (z.B. GitHub oder GitLab) der Benutzer-
   name und das Benutzerpasswort bei jedem Zugriff angegeben werden (d.h. bei
   Nutzung von "git clone", "git fetch", "git pull" oder "git push"). Der
   "credential helper" speichert die Benutzerdaten, so dass sie nur einmal ein-
@@ -274,7 +274,7 @@ git reset --hard
 
 git rm --cached [Dateiname]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°
-  Entfernt eine Datei aus der "Staging Area", aber nicht aus dem Repository.
+  Entfernt eine Datei aus der "Staging Area", aber nicht aus dem Repositorium.
   Nützlich wenn bei "git add" eine falsche Datei angegeben wurdel.
 
 
