@@ -60,11 +60,11 @@ git checkout [branch_name]
 
 
 git clone [Remote-Repositorium-URL]
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-  Lädt das gesamte Remote-Repositorium herunter. Das Stammverzeichnis wird im
-  aktuellen Arbeitsverzeichnis erstellt. Nach dem klonen sollte das Arbeits-
-  verzeichnis ins Stammverzeichnis geändert werden, damit folgende Git-Befehle
-  funktionieren!
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Lädt ein gesamtes Remote-Repositorium herunter. Das Stammverzeichnis wird im
+  aktuellen Arbeitsverzeichnis erstellt. Nach dem klonen sollte mit "cd"das
+  Arbeits verzeichnis ins Stammverzeichnis geändert werden, damit folgende
+  Git-Befehle funktionieren!
 
 
 git commit
@@ -265,6 +265,36 @@ git merge [branch_1] [branch_2]
              "branch" in den aktuell ausgewählten Zweig zusammenzuführen.
              Des Weiteren können auch mehr als 2 Zweige zusammengeführt werden,
              wobei der aktuelle ausgewählte Zweig IMMER der Zielzweig ist!
+
+
+git push [remote_name] [branch_name]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Überträgt den Zweig "[branch_name]" vom lokalen Repositorium zum
+  Remote-Repositorium "[remote_name]".
+  Siehe auch "git remote" und "git remote add".
+
+
+git remote
+°°°°°°°°°°
+  Zeigt alle Remote-Repositorien an.
+
+
+git remote -v
+°°°°°°°°°°°°°
+  Wie "git remote -v" nur "gesprächiger", denn "-v" Steht für "verbose".
+  Es werden detailiertere Informationen rückgegeben, d.h. pro Remote-
+  Repositorium die verwendete URL jeweils für "git fetch" und "git push".
+  Im Normalfall sind beide URL pro Repositorium identisch, bzw. müssen
+  identisch sein.
+
+
+git remote add [Name] [URL]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Legt den Zugriff auf ein Remote-Repositorium mit der URL "[URL]" in Git an
+  und benennt es als "[Name]". Falls es nur ein eiziges Remote-Repositorium
+  gibt, so wird in der Praxis zumeist "origin" für [Name] verwendet.
+  Die URL muss aus dem zuvor angelegten Remote-Repositorium (z.B. auf GitHub
+  oder GitLab) entnommen werden.
 
 
 git reset --hard
