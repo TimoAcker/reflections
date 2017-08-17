@@ -108,14 +108,30 @@ git config --global core.editor "'[programm]' [switches]"
   durch "/" (...oder es erspart die "//" Escape-Sequenz?).
 
 
+git config --global credential.helper wincred
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Aktiviert den "credential helper" in git. Normalerweise muss bei jedem
+  Zugriff auf ein Online-Repositorium (z.B. GitHub oder GitLab) der Benutzer-
+  name und das Benutzerpasswort bei jedem Zugriff angegeben werden (d.h. bei
+  Nutzung von "git clone", "git fetch", "git pull" oder "git push"). Der
+  "credential helper" speichert die Benutzerdaten, so dass sie nur einmal ein-
+  gegeben werden müssen.
+  ANMERKUNG: Ich weiß noch nicht, ob Name und Passwort nur für die aktuelle
+             Sitzung oder permanent gespeichert werden. Entsprechend weiß ich
+             ebensowenig WO die Daten gespeichert werden und in welcher Form
+             (d.h. ob als Klartext oder verschlüsselt).
+
+
 git config --global merge.conflictstyle diff3
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Öhm... keine Ahnung... irgendwelche Config-Setups...
+  (Vorschlag im Udacity-Kurs ohne nähere Erklärung)
 
 
 git config --global push.default upstram
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Öhm... keine Ahnung... irgendwelche Config-Setups...
+  (Vorschlag im Udacity-Kurs ohne nähere Erklärung)
 
 
 git diff
