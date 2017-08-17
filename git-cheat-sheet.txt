@@ -37,6 +37,16 @@ git branch [branch_name]
   Erstellt einen Zweige mit dem Namen "branch_name".
 
 
+git branch -d [branch_name]
+°°°°°°°°°°°°°°°°°°°°°°°°
+  Löscht den Zweig mit dem Namen "branch_name". "-d" steht für "delete".
+  Genauer gesagt wird nur das Label "branch_name" gelöscht. Wenn die Commits
+  des Zweiges noch über andere Zweige erreichbar sind bleiben sie erhalten.
+  Wenn sie nicht mehr erreichbar sind werden sie (wenn nicht anders
+  eingestellt) automatisch irgendwann gelöscht.
+  Zum manuellen löschen unerreichbarer Commits siehe "git gc".
+
+
 git checkout -b [new_branch_name]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Entspricht der Ausführung folgender zwei aufeinanderfolgender Befehle:
@@ -100,11 +110,11 @@ git config --global push.default upstram
 
 git diff
 °°°°°°°°
-  Wie "git diff [commit-ID 1] [commit-ID 1]", nur dass Arbeitsverzeichnis
+  Wie "git diff [commit-ID_1] [commit-ID_2]", nur dass Arbeitsverzeichnis
   und Staging Area miteinander verglichen werden.
 
 
-git diff [commit-ID 1] [commit-ID 1]
+git diff [commit-ID_1] [commit-ID_2]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Zeigt die Unterschiede zwischen zwei Commits in folgendem Format an:
     diff --git a/game.js b/game.js
@@ -163,6 +173,23 @@ git log --stat
     [#Dateien] files changed, [#Entfernt] insertations(+), [#Entfernt] deletions(-)
 
 
+git merge [branch_1] [branch_2]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Führt zwei Zweige in einem neuen Commit zusammen. Der neue Commit wird zum
+  Kopf des aktuellen Zweiges. Man sollte also aufpassen, dass man zuvor mit
+  "git brach" und "git checkout" sicherstellt, dass man sich im richtigen Zweig
+  befindet!
+  Vermutlich kann man auch zwei Zweige in einem neuen Zweig zusammenführen.
+  Falls [brach_1] vor dem Zusammenführen der aktive Zweig ist, dann wird als
+  Commit-Kommentar automatisch folgendes vorgeschlagen:
+    Merge branch '[brach_2]'
+  (zum Entfernen von [branch_2] bzw. dessen Label siehe "git
+  Anmerkung: Es genügt scheinbar auch "git merge [branch]" und den Zweig
+             "branch" in den aktuell ausgewählten Zweig zusammenzuführen.
+             Des Weiteren können auch mehr als 2 Zweige zusammengeführt werden,
+             wobei der aktuelle ausgewählte Zweig IMMER der Zielzweig ist!
+
+
 git reset --hard
 °°°°°°°°°°°°°°°°
   Setzt Änderungen in Staging Area und/oder Arbeitsverzeichnis zurück auf den
@@ -173,6 +200,20 @@ git rm --cached [Dateiname]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°
   Entfernt eine Datei aus der "Staging Area", aber nicht aus dem Repository.
   Nützlich wenn bei "git add" eine falsche Datei angegeben wurdel.
+
+
+git show [commit-ID]
+°°°°°°°°°°°°°°°°°°°°
+  Grundsätzlich wie "git diff [commit-ID_1] [commit-ID_2]", wenn [commit-ID]
+  als [commit-ID_1] und die Parent-Commit-ID als [commit-ID_2] verwendet wird.
+  Nützlich wenn durch Zusammenführen zweier Zweige (siehe "git merge") die
+  Commits der beiden ineinandergefächert wurden und mit "git log" schwer der
+  direkte Parent-Commit eines anderen Commits ersichtlich ist.
+  Außerdem - anders als bei "git diff" - werden ggf. mehrere Parent-Commits
+  gegen [commit-ID] verglichen! Während die einzelnen Vergleiche
+  "Parent-Commit-1 zu Child-Commit" und "Parent-Commit-2 zu Child-Commit" oft
+  sehr viele Änderungen anzeigen erhält man mit "git show" deutlich weniger
+  Änderungen angezeigt und vor allem (sozusagen) nur die relevanten.
 
 
 git status
