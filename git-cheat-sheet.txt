@@ -118,6 +118,13 @@ git diff --staged
   Wie "git diff", nur dass Staging Area und aktueller Commit verglichen werden.
 
 
+git gc
+°°°°°°
+  "gc" steht für "garbage collect". Commits die über keinen Branch mehr
+  erreichbar sind werden gelöscht. Dies geschieht auch von Zeit zu Zeit
+  automatisch, wenn nicht explizit deaktiviert (vmtl. mittels "git config").
+
+
 git init
 °°°°°°°°
   Initialisiert ein lokales Repositorium im aktuellen Arbeitsverzeichnis.
