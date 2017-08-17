@@ -58,6 +58,15 @@ How do the diagrams help you visualize the branch structure?
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
+  The result is a new commit, which has both branches as its parents.
+  The merging is done in the following way:
+    If a line is not present in the first common ancestor but it is present in
+    at least one of the branches, then the line will be present in the result
+    - or -
+    if a line is present in the first common ancestor but it is not present in
+    at least one of the branches, then the line will not be present in the
+    result
+  You can refrase that in many ways using boolean algebra. ;)
 
 
 What are the pros and cons of Git's automatic merging vs. always doing merges
