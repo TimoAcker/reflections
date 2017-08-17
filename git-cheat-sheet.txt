@@ -82,15 +82,24 @@ git commit -m "[Kommentar]"
   einzeiliger Kommentar. Für Mehrzeiler siehe "git commit".
 
 
+git config --get [Sektion.Schlüssel]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Ermittelt den Wert der Einstellung "[Sektion.Schlüssel]" (z.B. "color.ui").
+  Der Parameter "[--global]" (siehe andere "git config" Befehle) kann hier
+  NICHT verwendet werden. Man kann also anscheinend nicht erkennen, ob die
+  Einstellung global (für alle Projekte) oder nur für das aktuelle Projekt auf
+  den entsprechenden Wert gesetzt wurde.
+
+
 git config [--global] color.ui auto
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Bewirkt, dass "git diff" Farben zur darstellung nutzt.
   Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
   (...war bei mir schon an, konnte ich also nicht testen...)
 
 
 git config [--global] core.autocrlf true
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Bewirkt, dass es keine Probleme mit Linux- und Windows-Zeilenumbrüchen gibt.
   Wie das tatsächlich umgesetzt wird ist mir unbekannt. Da die Zeilenumbrüche
   in meinem lokalen Udacity-Übungs-Repositorium überall CRLF sind, obwohl ich
@@ -101,7 +110,7 @@ git config [--global] core.autocrlf true
 
 
 git config [--global] core.editor "'[programm]' [switches]"
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Ändert den Standard-Texteditor für Git. [programm] muss enteder generell in
   Singlequotes gesetzt werden oder nur wenn Zeichen vorkommen die in Bash als
   Escape-Sequenz geschrieben werden müssen (wie z.B. "\ " für " " oder "\\" für
@@ -111,7 +120,7 @@ git config [--global] core.editor "'[programm]' [switches]"
 
 
 git config [--global] credential.helper wincred
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Aktiviert den "credential helper" in git. Normalerweise muss bei jedem
   Zugriff auf ein Online-Repositorium (z.B. GitHub oder GitLab) der Benutzer-
   name und das Benutzerpasswort bei jedem Zugriff angegeben werden (d.h. bei
@@ -126,14 +135,14 @@ git config [--global] credential.helper wincred
 
 
 git config [--global] merge.conflictstyle diff3
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Öhm... keine Ahnung... irgendwelche Config-Setups...
   (Vorschlag im Udacity-Kurs ohne nähere Erklärung)
   Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
 
 
 git config [--global] push.default upstram
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Öhm... keine Ahnung... irgendwelche Config-Setups...
   (Vorschlag im Udacity-Kurs ohne nähere Erklärung)
   Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
