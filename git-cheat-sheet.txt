@@ -220,9 +220,10 @@ git init
   (Auch zum Reinitialisieren geeignet!)
 
 
-git log
-°°°°°°°
+git log [-n Anzahl]
+°°°°°°°°°°°°°°°°°°°
   Zeit den Projektverlauf ("history log").
+  [-n Anzahl] ist optional und begrenzt die angezeigten Einträge auf "Anzahl".
   Jeder Eintrage besitzt folgendes Format:
     commit [commit-ID]
     Author: [Autorname evtl. inkl. email etc.]
