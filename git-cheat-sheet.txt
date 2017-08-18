@@ -240,6 +240,55 @@ git diff --staged
   Wie "git diff", nur dass Staging Area und aktueller Commit verglichen werden.
 
 
+git fetch [remote_name]
+°°°°°°°°°°°°°°°°°°°°°°°
+  Lädt die "Remote-Versionen" aller Zweige von Remote-Repositorium
+  "[remote_name]" herunter und pflegt sie in die Baumstruktur des lokalen
+  Repositoriums ein.
+  Beispiel:
+    - Der aktuelle Zweig ist "master" (siehe auch "git checkout")
+    - Es gibt noch keine Änderungen gegenüber Remote-Repositorium "origin"
+    - Die Köpfe "master" und "origin/master" sind darum im lokalen Repositorium
+      noch gleich ("origin/master" steht einfach für "die letzte bekannte
+      Position vom Kopf des Zweiges "master" im Remote-Repositorium "origin")
+    - "git commit" wird ausgeführt, der Kopf "master" ist nun eine Position
+      (bzw. ein Commit) weiter als "origin/master". Der Parent-Commit von
+      "master" ist nun der Commit von "origin/master"
+    - Aus anderer Quelle wird inzwischen im Zweig "master" des Remote-
+      Repositoriums ein neuer Commit hinzugefügt, der Kopf hat sich somit hier
+      auch eine Position (bzw. ein Commit) weiterbewegt.
+      Zur Erinnerung: Die Commit-ID von "master" im Remote-Repositorium ist
+      trotzdem eine ANDERE als die ID von "master" im lokalen Repositorium!
+    - "git fetch origin" wird ausgeführt, so dass nun der Zweig "master" des
+      Remote-Repositoriums als "origin/master" im lokalen Repositorium
+      eingepflegt wird. D.h. "origin/master" bewegt sich eine Position (bzw.
+      ein Commit) weiter, aber NICHT auf das selbe Commit wie "master".
+      Die Köpfe von "master" und "origin/master" befinden sich nun auf zwei
+      unterschielichen Commits, welche aber den selben Parent-Commit besitzen.
+      (siehe auch "git merge" und "git pull")
+    Anmerkung: Natürlich können jeweils im lokalen Reporitorium und im
+    Remote-Repositorium mehrere Commits abgesetzt worden sein, bevor "git
+    fetch origin" aufgerufen wurde. In diesem Fall beitzen "master" und
+    "origin/master" zwar nicht das selbe Parent-Commit, aber sie besitzen ein
+    selbes "Ancestor-Commit" (sinngemäß "Urahnen-Commit"), sogar wenn die
+    Zweige "master" und "origin/master" extrem unterschiedliche Längen (bzw.
+    eine extrem unterschiedliche Anzahl an Commits) aufweisen.
+    Noch "ausgefallener" können auch mehrere Zweige betroffen sein, wie z.B.
+    "master" und "origin/master", "bugfix" und "origin/bugfix" sowie
+    "feature" und "origin/feature" etc.-
+  ANMERKUNG: Als ich versehentlich "git fetch" statt "git fetch [remote_name]"
+             schrieb, hatte Git trotzdem ohne murren und knurren gemacht was
+             es soll. Vermutlich wird "[remote_name]" nur benötigt, wenn zuvor
+             mit "git remote add" mehr als ein einzelnes Remote-Repositorium
+             definiert wurde. Das genaue Verhalten kann ich in so einem "Multi-
+             Remote-Fall" ohne Recherche nicht vorhersagen, aber ich VERMUTE
+             folgendes:
+             - "git fetch [remote_name]" zieht nur von Remote-Repositorium
+               "[remote_name]"
+             - "git fetch" zieht von allen zuvor mittels "git remote add"
+               hinzugefügten Remote-Repositorien
+
+
 git gc
 °°°°°°
   "gc" steht für "garbage collect". Commits die über keinen Branch mehr
@@ -301,6 +350,14 @@ git merge [branch_1] [branch_2]
              "branch" in den aktuell ausgewählten Zweig zusammenzuführen.
              Des Weiteren können auch mehr als 2 Zweige zusammengeführt werden,
              wobei der aktuelle ausgewählte Zweig IMMER der Zielzweig ist!
+
+
+git pull [remote_name] [branch_name]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Bewirkt das selbe wie das direkt aufeinanderfolgende Ausführen der folgenden
+  zwei Befehlszeilen (vorrausgesetzt der aktuelle Zweig ist [branch_name]):
+    git fetch [remote_name]
+    git merge [branch_name] [remote_name]/[branch_name]
 
 
 git push [remote_name] [branch_name]
