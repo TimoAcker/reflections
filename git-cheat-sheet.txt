@@ -170,18 +170,54 @@ git config [--global] credential.helper wincred
              Verhalten auftreten, dann werde ich mich damit auseinandersetzen.
 
 
-git config [--global] merge.conflictstyle diff3
+git config [--global] merge.conflictstyle [style]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-  Öhm... keine Ahnung... irgendwelche Config-Setups...
-  (Vorschlag im Udacity-Kurs ohne nähere Erklärung)
-  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
+  Definiert wie bei "git merge" ggf. Konflike in der zusammengeführten Datei
+  markiert werden. Mögliche Werte für "[style]" sind "", "merge" und "diff3"
+  (ohne Anführungszeichen einzugeben):
+    - "" (leer, keine Eingabe)
+        Dies ist der Standard und entspricht "merge"
+    - "merge"
+        <<<<<<<
+        Änderungsvariante A
+        =======
+        Änderungsvariante B
+        >>>>>>>
+    - "diff3"
+        <<<<<<<
+        Änderungsvariante A
+        |||||||
+        Originaltext
+        =======
+        Änderungsvariante B
+        >>>>>>>
 
 
-git config [--global] push.default upstram
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-  Öhm... keine Ahnung... irgendwelche Config-Setups...
-  (Vorschlag im Udacity-Kurs ohne nähere Erklärung)
-  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
+git config [--global] push.default upstream
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Der optionale Parameter "--global" bedeutet der Wert wird für alle Projekte
+  gesetzt, ohne "--global" wird der Wert nur für das aktuelle Projekt gesetzt.
+  Diese Befehlszeile war ein Vorschlag im Udacity-Kurs, leider ohne nähere
+  Erklärungen.
+  Folgendes habe ich herausgefunden (ohne tiefere Recherche):
+    Der Config-Schlüssel "push.default" definiert das Standardverhalten von
+    "git push". Der Wert "upstream" ist sinnvoll, wenn man mit nur einem
+    Remote-Repositorium arbeitet und will, dass nach "git push" das Remote-
+    Repositorium (bzw. der "gepushte" Zweig) genau so aussieht wie das lokale
+    Repositorium (bzw. der lokale Zweig).
+    Der Standardwert ist nicht "upstream" sondern "simple" (bzw. bei alten Git-
+    Versionen vor 2.0 ist es "matching")
+    Es gibt insgesamt folgende mögliche Werte (die Erklärungen sind eventuell
+    nicht richtig, da ich alles nur überflogen habe und nicht 100% verstehe):
+      - "nothing" = Verhalten wird immer explizit per Parameter definiert.
+      - "current" = der aktuelle Zweig wird ggf. am Empängerende in den Zweig
+                    mit dem selben Namen eingepfelgt. (mehrere Remotes möglich)
+      - "upstream" = der aktuelle Zweig wird nur dort eingepfelgt wo er herkam.
+      - "tracking" = Altlastsynonym für "upstream"
+      - "simple" = Wie "upstream", verweigert aber den push, wenn der lokale
+                   Zweigname anders lautet als der Remote-Zweigname.
+      - "matching" = Alle Zweige mit den selben Namen (lokal und remote) müssen
+                     immer gleichzeitig gepusht werden.
 
 
 git diff
