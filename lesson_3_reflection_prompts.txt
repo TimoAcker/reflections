@@ -20,10 +20,27 @@ automatically stay up-to-date with your remote repository?
     on completing some task.
 
 
-Describe the differences between forks, clones, and branches.  When would you
+Describe the differences between forks, clones, and branches. When would you
 use one instead of another?
 
-    Fill in your answer here
+    - Branches are located inside of a repository.
+      They are used for so many reasons, which I wrote down so often...
+      e.g. when implementing a experimental feature, while still wanting to
+      have a working code to compile.
+
+    - Clones are exact copies of a repository - from a remote repository to a
+      local repository or from a local repository to another local repository.
+      You use them for example to "download" a project from GitHib to your
+      computer in your office and later to the computer at your home office.
+      Another exaple is a new team members that uses clones to start
+      working on and contributing to the project.
+
+    - Forks are clones on a remote repository, which have a backlink to the
+      original one. This is not a feature of Git but GitHub (or GitLab,
+      Bitbucket and similar services).
+      This is for example used for open source sofware project which split up
+      into different groups with different opinions of what the sofware should
+      exactly look like (e.g. think of the many different linux distributions).
 
 
 What is the benefit of having a copy of the last known state of the remote
