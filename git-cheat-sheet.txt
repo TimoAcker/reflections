@@ -19,14 +19,6 @@ git add [Dateiname]
   von "git commit" berücksichtigt werden).
 
 
-git checkout [commit-ID]
-°°°°°°°°°°°°°°°°°°°°°°°°
-  Stellt (temporär) den Zustand des gerwünschten Commits wieder her. Wenn nicht
-  am neusten Commit gearbeitet wird nennt man dies den "detached HEAD state".
-  Der neuste Commit wird "HEAD" genannt.
-  (siehe auch "git checkout -b [new-branch_name]")
-
-
 git branch
 °°°°°°°°°°
   Zeigt alle Zweige an. Der mit Stern (*) markierte ist der aktuell gewählte.
@@ -47,16 +39,34 @@ git branch -d [branch_name]
   Zum manuellen löschen unerreichbarer Commits siehe "git gc".
 
 
+git checkout [branch_name]
+°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Wechselt den Zweig zu "branch_name" und dort zum neusten Commit.
+
+
+git checkout [commit-ID]
+°°°°°°°°°°°°°°°°°°°°°°°°
+  Stellt (temporär) den Zustand des gerwünschten Commits wieder her. Wenn nicht
+  am neusten Commit gearbeitet wird nennt man dies den "detached HEAD state".
+  Der neuste Commit wird "HEAD" genannt.
+  (siehe auch "git checkout -b [new-branch_name]")
+
+
+git checkout -- [file]
+°°°°°°°°°°°°°°°°°°°°°°
+  Verwirft die Änderungen der lokalen Datei "[file]".
+  Dieser Befehlt wird genutzt, wenn nach einem Aufruf von "git status" im
+  Bereich "Changes not staged for commit:" die Zeile "modified: [file]"
+  angezeigt wird und man die Änderungen an diser Datei "[file]" verwerfen
+  möchte, also den Zustand des aktuellen Commits für die Datei "[file]"
+  wiederherstellen.
+
+
 git checkout -b [new_branch_name]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Entspricht der Ausführung folgender zwei aufeinanderfolgender Befehle:
     git brach [new_branch_name]
     git checkout [new_branch_name]
-
-
-git checkout [branch_name]
-°°°°°°°°°°°°°°°°°°°°°°°°°°
-  Wechselt den Zweig zu "branch_name" und dort zum neusten Commit.
 
 
 git clone [Remote-Repositorium-URL]
@@ -170,7 +180,7 @@ git config [--global] credential.helper wincred
              Verhalten auftreten, dann werde ich mich damit auseinandersetzen.
 
 
-git config [--global] merge.conflictstyle [style]
+git config [--global] merge.conflictStyle [style]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Definiert wie bei "git merge" ggf. Konflike in der zusammengeführten Datei
   markiert werden. Mögliche Werte für "[style]" sind "", "merge" und "diff3"
@@ -400,6 +410,8 @@ git rm --cached [Dateiname]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°
   Entfernt eine Datei aus der "Staging Area", aber nicht aus dem Repositorium.
   Nützlich wenn bei "git add" eine falsche Datei angegeben wurdel.
+  ANMERKUNG: Anscheinend ist hierfür "git reset HEAD [Datei]" angedacht...
+             Sollte ich mal genauer Recherchieren!
 
 
 git show [commit-ID]
