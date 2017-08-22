@@ -230,6 +230,27 @@ git config [--global] push.default upstream
                      immer gleichzeitig gepusht werden.
 
 
+git config [--global] user.name "[user_name]"
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Der optionale Parameter "--global" bedeutet der Wert wird für alle Projekte
+  gesetzt, ohne "--global" wird der Wert nur für das aktuelle Projekt gesetzt.
+  Dieser Befehl definiert den Benutzernamen, der z.B. bei Commits angezeigt
+  wird. Es ist wichtig, dass "[username]" in der Befehlszeile von Anführungs-
+  zeichen umschlossen wird, da z.B. bei "Vorname Nachname" ein Leerzeichen
+  vorkommt! (Siehe auch "git config [--global] user.email")
+
+
+git config [--global] user.email [user_email]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Der optionale Parameter "--global" bedeutet der Wert wird für alle Projekte
+  gesetzt, ohne "--global" wird der Wert nur für das aktuelle Projekt gesetzt.
+  Dieser Befehl definiert die Emailadresse, die z.B. bei Commits angezeigt
+  wird. Ander als bei "git config user.name" muss der zu setzende Wert
+  "[user_email]" in der Befehlszeile NICHT von Anführungszeichen umschlossen
+  werden, da definitiv kein Leerzeichen vorkommt.
+  (Siehe auch "git config [--global] user.name")
+
+
 git diff
 °°°°°°°°
   Wie "git diff [commit-ID_1] [commit-ID_2]", nur dass Arbeitsverzeichnis
