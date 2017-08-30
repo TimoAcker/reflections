@@ -1,0 +1,253 @@
+﻿
+//////////////////////////////////////////////////////////////////////////////
+//                                                                          //
+//                  How to use SSH instead of HTTPS in Git                  //
+//                °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°                //
+// discription for GitHub, but may work for other services in a similar way //
+//                                                                          //
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+1.  Open a Command Line Interface
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  Window: open Git Bash
+
+
+  Linux:  open Terminal
+
+
+
+2.  Check for existing SSH keys
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  2.1  You don't have to use an already existing SSH key!
+       Some recommend to use one new unique key per Server.
+       If you want to create a new key jump to step "2."
+
+
+  2.2  List all files in your .ssh directory using
+
+         $ ls -al ~/.ssh
+
+
+  2.3  Search the list for a private key you want to use jump to step "4."
+       If you do not find a private key you want to use move on to step "3."
+
+
+
+3.  Generate a new SSH key
+°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  3.1  Run the following command line with your GitHub email address
+       to create a new ssh key, using your email address as a label:
+
+         $ ssh-keygen -t rsa -b 4096 -C "your_github_email@example.com"
+
+
+  3.2  On "Enter a file in which to save the key" just press Enter to
+       save the SSH key in the default directory with the deafault
+       file name (that is what is shown between the parentheses).
+       Remember or temporarily note down the path and file name!
+
+
+  3.3  On "Enter passphrase" you may enter a passphrase as
+       an additional layer of security or just hit enter.
+       Remember or temporarily note down the passphrase!
+
+
+  3.4  On "Enter same passphrase again" reenter same as in step "3.3"
+
+
+
+4.  Add the SSH key to the ssh-agent
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  4.1  Run the following command line, while replacing [private_key] with
+       the filename (incl. path) of your private SSH key - that is the one
+       WITHOUT the ".pub" file extension (this step MAY be redundant if
+       you used the default name "~/.ssh/id_rsa" when generating the key):
+
+         $ ssh-add [private_key]
+
+
+    4.1.1  If you get the error message "Could not open a connection to your
+           authentication agent." then either
+
+             a) jump to step "4.2" to manually launch the ssh-agent
+
+             - or -
+
+             b) jump to step "4.3" to setup automatic launching the ssh-agent
+
+           If you get NO error message, then go on with step "3.1.2"
+
+
+    4.1.2  On "Enter passphrase for [private_key]:" enter the passphrase you
+           have entered at step "3.3" and jump to step "5.".
+
+
+  4.2  To start the ssh-agent manually in the background enter the following
+       command line and jump back to step "4.1" afterwards.
+
+         $ eval $(ssh-agent -s)
+
+
+  4.3  To setup automatic launching the ssh-agent add the following lines to
+       your "~/.profile" or "~/.bashrc" file (or create one of these files),
+       restart Git Bash and jump back to step "4.1" afterward.
+       (REMARK: in my case only "~/.profile" worked, but not "~/.bashrc")
+
+           #############################
+           ## launching the ssh-agent ##
+           #############################
+           env=~/.ssh/agent.env
+           agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+           agent_start () {
+             (umask 077; ssh-agent >| "$env")
+             . "$env" >| /dev/null ; }
+           agent_load_env
+           #
+           # agent_run_state:
+           #   0 = agent running w/ key;
+           #   1 = agent w/o key;
+           #   2 = agent not running
+           #
+           agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+           if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+             agent_start
+             ssh-add
+           elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+             ssh-add
+           fi
+           unset env
+
+
+
+5.  Add the SSH key to GitHub
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  5.1  Open your favorite browser, go to "https//github.com" and sign in
+
+
+  5.2  In the upper right corner of the website click on your profile photo
+       and select "Settings".
+
+
+  5.3  In the side bar under "Personal settings" click on "SSH and GPG keys"
+
+
+  5.4  Right next to "SSH keys" click on the button "New SSH key"
+
+
+  5.5  In the field "Title" enter a descriptive name like "home office",
+       "old Laptop", "Amiga 1200", "Business C=64" or whatever fits. ;)
+
+
+  5.6  Copy your public SSH key to the clipboar by either
+
+         b) Opening your public ssh key (e.g. "~/.ssh/id_rsa.pub" if you had
+            chosen the default name) with your favorite text editor and copy
+            the whole text to the clipboard
+
+         - or -
+
+         a) running the following command line (replace [your_public_key]
+            with the actual name you have entered at step "2.2"):
+
+              $ clip < [your_public_key].pub
+
+            E.g. if you have chosen the dafault name enter:
+
+              $ clip < ~/.ssh/id_rsa.pub
+
+
+  5.7  Paste your public ssh key into the "key" field and click "Add SSH key".
+
+
+  5.8  It may happen, that you need to reender your GitHub password.
+       You must enter you **GitHub** password, NOT your ssh passphrase!
+
+
+  5.9  Congratulations! You ssh key should be listed now and fully working!
+       Go on with Step "6." to test your SSH connection and permanently add
+       GitHub to the list of known hosts.
+
+
+
+6.  Testing you SSH connection and add host to list of known
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  6.1  Enter the following commandline:
+
+         $ ssh -T git@github.com
+
+
+  6.2  You may see a warning similar to the following:
+┌────────────────────────────────────────────────────────────────────────────┐
+│ The authenticity of host 'github.com (192.30.252.1)' can't be established. │
+│ RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8. │
+│ Are you sure you want to continue connecting (yes/no)?                     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+       Or you may see a warning similar to this (most likely you did not
+       generate a new ssh key like explained step "3."):
+┌────────────────────────────────────────────────────────────────────────────┐
+│ The authenticity of host 'github.com (192.30.252.1)' can't be established. │
+│ RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.    │
+│ Are you sure you want to continue connecting (yes/no)?                     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+
+  6.3  Check the fingerprint. If it matches one of those in step "6.2", then
+       everything should be OK, so you may enter "yes".
+
+
+  6.4  You MAY get the following message:
+
+         Warning: Permanently added 'github.com,192.30.253.112'
+         (RSA) to the list of known hosts.
+
+
+       And if everything is OK you MUST also or at least get this one:
+
+         Hi [your_user_name]! You've successfully authenticated,
+         but GitHub does not provide shell access.
+
+
+       But if you are getting this warning:
+         "Error: Permission denied (publickey)"
+       Then you should checkout the GitHub help:
+         https://help.github.com/articles/error-permission-denied-publickey/
+
+
+
+7.  Get SSH URL for your repository on GitHub
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  7.1  Open your favorite browser, go to "https//github.com" and sign in
+
+
+  7.2  Open the repository you like to work with
+
+
+  7.3  Click the green "Clone or download" button
+
+
+  7.4  If you see "Clone with HTTPS" and an address like
+       "https://github.com/MyUserName/myproject.git" just
+       click on "Use SSH" in the upper right box corner.
+
+
+  7.5  If you see "Clone with SSH", then you are right
+       and the address should look something like
+       "git@github.com:MyUserName/myproject.git"
+
+
+  7.6  Use the URL from step "7.5" with the command line
+      "git remote add [remote_name] [URL]" or
+      "git clone [URL]" or
+      "git remote add [remote_name] [URL]" or
+      "git remote set-url [remote_name] [URL]"
+      (please use "git help <...>" for more information)
