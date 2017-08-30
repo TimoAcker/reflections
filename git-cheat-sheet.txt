@@ -72,7 +72,7 @@ git checkout -b [new_branch_name]
 git clone [Remote-Repositorium-URL]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Lädt ein gesamtes Remote-Repositorium herunter. Das Stammverzeichnis wird im
-  aktuellen Arbeitsverzeichnis erstellt. Nach dem klonen sollte mit "cd"das
+  aktuellen Arbeitsverzeichnis erstellt. Nach dem klonen sollte mit "cd" das
   Arbeits verzeichnis ins Stammverzeichnis geändert werden, damit folgende
   Git-Befehle funktionieren!
 
@@ -412,13 +412,21 @@ git remote -v
   identisch sein.
 
 
-git remote add [Name] [URL]
-°°°°°°°°°°°°°°°°°°°°°°°°°°°
+git remote add [remote_name] [URL]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Legt den Zugriff auf ein Remote-Repositorium mit der URL "[URL]" in Git an
-  und benennt es als "[Name]". Falls es nur ein eiziges Remote-Repositorium
-  gibt, so wird in der Praxis zumeist "origin" für [Name] verwendet.
-  Die URL muss aus dem zuvor angelegten Remote-Repositorium (z.B. auf GitHub
-  oder GitLab) entnommen werden.
+  und benennt es als "[remote_name]". Falls es nur ein eiziges Remote-
+  Repositorium gibt, so wird in der Praxis zumeist "origin" für [remote_name]
+  verwendet. Die URL muss aus dem zuvor angelegten Remote-Repositorium (z.B.
+  auf GitHub oder GitLab) entnommen werden.
+
+
+git remote set-url [remote_name] [URL]
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Ändert die (ggf. erste) URL des Remote-Repositoriums "[remote_name]" auf
+  die neue URL "[URL]". Dieser Befehl kann nützlich sein, wenn man von Zugriff
+  per HTTPS auf Zugriff per SSH umstellen will (genau hierfür neötigte ich
+  diese Befehlszeile, siehe auch Datei "how-to-use-ssh.txt").
 
 
 git reset --hard
