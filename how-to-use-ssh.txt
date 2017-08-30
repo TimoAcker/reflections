@@ -3,7 +3,7 @@
 //                                                                          //
 //                  How to use SSH instead of HTTPS in Git                  //
 //                °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°                //
-// discription for GitHub, but may work for other services in a similar way //
+//                      tutorial for GitHub and GitLab                      //
 //                                                                          //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -12,7 +12,7 @@
 1.  Open a Command Line Interface
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-  Window: open Git Bash
+  Windows: open Git Bash
 
 
   Linux:  open Terminal
@@ -125,74 +125,125 @@
 
 
 
-5.  Add the SSH key to GitHub
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+5a.  Add the SSH key to GitHub (for GitLab see "5b.")
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-  5.1  Open your favorite browser, go to "https//github.com" and sign in
-
-
-  5.2  In the upper right corner of the website click on your profile photo
-       and select "Settings".
+  5a.1  Open your favorite browser, go to "https//github.com" and sign in
 
 
-  5.3  In the side bar under "Personal settings" click on "SSH and GPG keys"
+  5a.2  In the upper right corner of the website click on your profile photo
+        and select "Settings".
 
 
-  5.4  Right next to "SSH keys" click on the button "New SSH key"
+  5a.3  In the side bar under "Personal settings" click on "SSH and GPG keys"
 
 
-  5.5  In the field "Title" enter a descriptive name like "home office",
-       "old Laptop", "Amiga 1200", "Business C=64" or whatever fits. ;)
+  5a.4  Right next to "SSH keys" click on the button "New SSH key"
 
 
-  5.6  Copy your public SSH key to the clipboar by either
-
-         b) Opening your public ssh key (e.g. "~/.ssh/id_rsa.pub" if you had
-            chosen the default name) with your favorite text editor and copy
-            the whole text to the clipboard
-
-         - or -
-
-         a) running the following command line (replace [your_public_key]
-            with the actual name you have entered at step "2.2"):
-
-              $ clip < [your_public_key].pub
-
-            E.g. if you have chosen the dafault name enter:
-
-              $ clip < ~/.ssh/id_rsa.pub
+  5a.5  In the field "Title" enter a descriptive name like "home office",
+        "old Laptop", "Amiga 1200", "Business C=64" or whatever fits. ;)
 
 
-  5.7  Paste your public ssh key into the "key" field and click "Add SSH key".
+  5a.6  Copy your public SSH key to the clipboar by either
+
+          b) Opening your public ssh key (e.g. "~/.ssh/id_rsa.pub" if you had
+             chosen the default name) with your favorite text editor and copy
+             the whole text to the clipboard
+
+          - or -
+
+          a) running the following command line (replace [your_public_key]
+             with the actual name you have entered at step "2.2"):
+
+               $ clip < [your_public_key].pub
+
+             E.g. if you have chosen the dafault name enter:
+
+               $ clip < ~/.ssh/id_rsa.pub
 
 
-  5.8  It may happen, that you need to reender your GitHub password.
-       You must enter you **GitHub** password, NOT your ssh passphrase!
+  5a.7  Paste your public ssh key into the "key" field and click "Add SSH key".
 
 
-  5.9  Congratulations! You ssh key should be listed now and fully working!
-       Go on with Step "6." to test your SSH connection and permanently add
-       GitHub to the list of known hosts.
+  5a.8  It may happen, that you need to reender your GitHub password.
+        You must enter you **GitHub** password, NOT your ssh passphrase!
+
+
+  5a.9  Congratulations! You ssh key should be listed now and fully working!
+        Go on with Step "6." to test your SSH connection and permanently add
+        GitHub to the list of known hosts.
 
 
 
-6.  Testing you SSH connection and add host to list of known
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+5b.  Add the SSH key to GitLab (for GitHub see "5a.")
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-  6.1  Enter the following commandline:
-
-         $ ssh -T git@github.com
+  5b.1  Open your favorite browser, go to "https//github.com" and sign in
 
 
-  6.2  You may see a warning similar to the following:
+  5b.2  In the upper right corner of the website click on your profile photo
+        and select "Settings".
+
+
+  5b.3  In the upper menu bar click on "SSH keys"
+
+
+  5b.4  Copy your public SSH key to the clipboar by either
+
+          b) Opening your public ssh key (e.g. "~/.ssh/id_rsa.pub" if you had
+             chosen the default name) with your favorite text editor and copy
+             the whole text to the clipboard
+
+          - or -
+
+          a) running the following command line (replace [your_public_key]
+             with the actual name you have entered at step "2.2"):
+
+               $ clip < [your_public_key].pub
+
+             E.g. if you have chosen the dafault name enter:
+
+               $ clip < ~/.ssh/id_rsa.pub
+
+
+  5b.5  Paste your public ssh key into the "key" field
+
+
+  5b.5  You may change the field "Title" ti a descriptive name like
+        "home office", "old laptop", "Amiga 1200", "C=64" or whatever fits. ;)
+
+
+  5b.6  Click the green "Add key" button
+
+
+  5b.7  It may happen, that you need to reenter your GitLab password.
+        You must enter you **GitLab** password, NOT your ssh passphrase!
+
+
+  5b.8  Congratulations! You ssh key should be listed now and fully working!
+        Go on with Step "6." to test your SSH connection and permanently add
+        GitHub to the list of known hosts.
+
+
+
+6a.  Test SSH connection and add GitHub to known hosts (for GitLab see "6b.")
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  6a.1  Enter the following commandline:
+
+          $ ssh -T git@github.com
+
+
+  6a.2  You may see a warning similar to the following:
 ┌────────────────────────────────────────────────────────────────────────────┐
 │ The authenticity of host 'github.com (192.30.252.1)' can't be established. │
 │ RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8. │
 │ Are you sure you want to continue connecting (yes/no)?                     │
 └────────────────────────────────────────────────────────────────────────────┘
 
-       Or you may see a warning similar to this (most likely you did not
-       generate a new ssh key like explained step "3."):
+        Or you may see a warning similar to this (most likely you did not
+        generate a new ssh key like explained step "3."):
 ┌────────────────────────────────────────────────────────────────────────────┐
 │ The authenticity of host 'github.com (192.30.252.1)' can't be established. │
 │ RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.    │
@@ -200,54 +251,139 @@
 └────────────────────────────────────────────────────────────────────────────┘
 
 
-  6.3  Check the fingerprint. If it matches one of those in step "6.2", then
-       everything should be OK, so you may enter "yes".
+  6a.3  Check the fingerprint. If it matches one of those in step "6a.2", then
+        everything should be OK, so you may enter "yes".
 
 
-  6.4  You MAY get the following message:
+  6a.4  You MAY get the following message:
 
-         Warning: Permanently added 'github.com,192.30.253.112'
-         (RSA) to the list of known hosts.
-
-
-       And if everything is OK you MUST also or at least get this one:
-
-         Hi [your_user_name]! You've successfully authenticated,
-         but GitHub does not provide shell access.
+          Warning: Permanently added 'github.com,192.30.253.112'
+          (RSA) to the list of known hosts.
 
 
-       But if you are getting this warning:
-         "Error: Permission denied (publickey)"
-       Then you should checkout the GitHub help:
-         https://help.github.com/articles/error-permission-denied-publickey/
+        If you then get the following error message, it might have
+        taken you to long to type "yes" at step "6a.3" causing a
+        timeout and you just have to repeat from step "6a.1":
+
+          Authentication failed.
+
+
+        And if everything is OK you MUST also or at least get this one:
+
+          Hi [your_user_name]! You've successfully authenticated,
+          but GitHub does not provide shell access.
+
+
+        But if you are getting this error message:
+          "Error: Permission denied (publickey)"
+        Then you should checkout the GitHub help:
+          https://help.github.com/articles/error-permission-denied-publickey/
 
 
 
-7.  Get SSH URL for your repository on GitHub
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+6b.  Test SSH connection and add GitLab to known hosts (for GitHub see "6b.")
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
-  7.1  Open your favorite browser, go to "https//github.com" and sign in
+  6b.1  Enter the following commandline:
 
-
-  7.2  Open the repository you like to work with
-
-
-  7.3  Click the green "Clone or download" button
+          $ ssh -T git@gitlab.com
 
 
-  7.4  If you see "Clone with HTTPS" and an address like
-       "https://github.com/MyUserName/myproject.git" just
-       click on "Use SSH" in the upper right box corner.
+  6b.2  You may see a warning similar to the following:
+┌────────────────────────────────────────────────────────────────────────────┐
+│The authenticity of host 'gitlab.com (52.167.219.168)' can't be established.│
+│ECDSA key fingerprint is SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw.│
+│Are you sure you want to continue connecting (yes/no)?                      │
+└────────────────────────────────────────────────────────────────────────────┘
 
 
-  7.5  If you see "Clone with SSH", then you are right
-       and the address should look something like
-       "git@github.com:MyUserName/myproject.git"
+  6b.3  Check the fingerprint. If it matches the one of step "6b.2",
+        then everything should be OK, so you may enter "yes".
 
 
-  7.6  Use the URL from step "7.5" with the command line
-      "git remote add [remote_name] [URL]" or
-      "git clone [URL]" or
-      "git remote add [remote_name] [URL]" or
-      "git remote set-url [remote_name] [URL]"
-      (please use "git help <...>" for more information)
+  6b.4  You MAY get the following message:
+
+          Warning: Permanently added 'gitlab.com,52.167.219.168'
+          (ECDSA) to the list of known hosts.
+
+
+        If you then get the following error message, it might have
+        taken you to long to type "yes" at step "6b.3" causing a
+        timeout and you just have to repeat from step "6b.1":
+
+          Authentication failed.
+
+
+        And if everything is OK you MUST also or at least get this one:
+
+          Welcome to GitLab, [your_user_name]!
+
+
+        But if you are getting this warning:
+          "Error: Permission denied (publickey)"
+        Then you may search the GitLab docs for a solution:
+          https://docs.gitlab.com/
+
+
+
+7a.  Get SSH URL for your repository on GitHub (for GitLab see "7b.")
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  7a.1  Open your favorite browser, go to "https://github.com" and sign in
+
+
+  7a.2  Open the repository you like to work with
+
+
+  7a.3  Click the green "Clone or download" button
+
+
+  7a.4  If you see "Clone with HTTPS" and an address like
+        "https://github.com/MyUserName/myproject.git" just
+        click on "Use SSH" in the upper right box corner.
+
+
+  7a.5  If you see "Clone with SSH", then you are right
+        and the address should look something like
+        "git@github.com:MyUserName/myproject.git"
+
+
+  7a.6  Use the URL from step "7a.5" with the command line
+       "git remote add [remote_name] [URL]" or
+       "git clone [URL]" or
+       "git remote add [remote_name] [URL]" or
+       "git remote set-url [remote_name] [URL]" etc.
+       (please use "git help <...>" for more information)
+
+
+
+7b.  Get SSH URL for your repository on GitLab (for GitHub see "7a.")
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+  7b.1  Open your favorite browser, go to "https://gitlab.com" and sign in
+
+
+  7b.2  Open the repository you like to work with
+
+
+  7b.3  Directly under the project title and its
+        description you should see a text field.
+
+
+  7b.4  If you see "HTTPS" to the left of the text field and
+        the address inside the text field looks something like
+        "https://gitlab.com/MyUserName/myproject.git", then
+        just click on "HTTPS" and select "SSH".
+
+
+  7b.5  If you see "SSH" to the left of the text field, then you are right
+        and the address inside the text field should look something like
+        "git@gitlab.com:MyUserName/myproject.git"
+
+
+  7b.6  Use the URL from step "7b.5" with the command line
+       "git remote add [remote_name] [URL]" or
+       "git clone [URL]" or
+       "git remote add [remote_name] [URL]" or
+       "git remote set-url [remote_name] [URL]" etc.
+       (please use "git help <...>" for more information)
