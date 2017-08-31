@@ -59,7 +59,21 @@ stored locally?
 How would you collaborate without using Git or GitHub?  What would be easier,
 and what would be harder?
 
-    Fill in your answer here
+    Without Git you would have to do a manual version control, which is not
+    that efficient like using Git.
+    Without GitHub, you would have to either setup your own remote-reporitory
+    to collaborate or work locally together ("local" in the real life sense)
+    and/or you would have to not use Git.
+    By the way, while setting up your own remote-repository would be harder
+    by itself than simply using GitHub you also would be missing the "pull
+    requests" feature or having a much much harder time implementing your
+    own supplement.
+    The only harder things when using Git and GitHub is to get your head
+    around the concespts of Git in general and GitHub features like "pull
+    requests" first, and to evolve some routine using them.
+    After accomplishing that EVERYTHING is easier with Git and GitHub
+    (although this might be a bit of a generalisation... and that I prefer
+    GitLab over GitHub...).
 
 
 When would you want to make changes in a separate branch rather than directly in
