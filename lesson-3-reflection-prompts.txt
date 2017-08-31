@@ -46,7 +46,14 @@ use one instead of another?
 What is the benefit of having a copy of the last known state of the remote
 stored locally?
 
-    Fill in your answer here
+    First of all, it is simply necessary to be able to know if something has
+    changed on the remote side while you were working on the local side.
+    Further it enables merging changes and detect what merging style has to
+    be done ("fast forward" or "normal").
+    It it also usefull to recall what you have changed since the last pull
+    request (which may be spread over more than one commit) by usinging
+    "git diff origin/master master" (of course master could also be another
+    branch here).
 
 
 How would you collaborate without using Git or GitHub?  What would be easier,
