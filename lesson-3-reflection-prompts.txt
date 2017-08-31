@@ -79,4 +79,15 @@ and what would be harder?
 When would you want to make changes in a separate branch rather than directly in
 master?  What benefits does each approach have?
 
-    Fill in your answer here
+    The master branch should be the "always ready" branch. Or to use other
+    words, it should always contain a compilable, running and stable version
+    of your code. That means you schould never directly modify the master
+    branch, since if two contributers dO this at the same time you may
+    get a merge conflict. Further, you might think, that you have done some
+    "really cool stuff", but other contributers might disagree. Either cause
+    of personal taste or because you actually broke the code without
+    realizing it or whatever. Using different branches for all work in
+    progress and just merging them at the end using pull requests guaranties
+    that master is always stable and you can have a healthy discussion with
+    your teammates before modifying (directly or indirectly by merging) the
+    master branch.
