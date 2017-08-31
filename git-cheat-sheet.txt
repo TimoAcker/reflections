@@ -158,6 +158,24 @@ git config [--global] core.editor "'[programm]' [switches]"
   Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
 
 
+git config [--global] core.longpaths true
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  Aktiviert auf Windows die Unterstützung von "Longpath". Dass heißt die
+  maximale Stringlänge von Pfadangaben wird von 260 Zeichen (3 Laufwerks-
+  zeichen + 256 Pfadzeichen + 1 Nullzeichen) auf ca. 32767 Zeichen erweitert
+  (vmtl. via "\\?\" Präfix). Das aktivieren dieser Option kann einige
+  "Nebeneffekte" aufweisen.
+  Der Switch "--global" bedeutet "für alle Projekte, nicht nur das aktuelle".
+  Im Udacity-Kurs wurde "--system" verwendet. Während "--global" zwar über
+  "--local" (Standard wenn kein Scope-Parameter angegeben wird) steht, steht
+  "--system" nochmal über "--global", da "--global" für den aktuellen Benutzer
+  gilt und "--system" für das gesamte System. Tatsächlich scheibt Gi-Bash bei
+  Installation bei "--global" nach "$HOME" bzw. "%USERPROFILE%" und bei
+  "--system" nach "$PROGRAMDATA" bzw. "%PROGRAMDATA%" bzw. "%ALLUSERPROFILE%",
+  im portable mode aber immer nach "%USERPROFILE%", da "$PROGRAMDATA" auf das
+  selbe Verzeichnis wie "$HOME" weist.
+
+
 git config [--global] credential.helper wincred
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Verfügbar ab Git Version "1.7.10" (z.Zt. aktuelle Version ist "2.14.1")
