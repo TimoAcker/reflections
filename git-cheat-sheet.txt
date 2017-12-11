@@ -384,17 +384,17 @@ git log --stat
     [#Dateien] files changed, [#Entfernt] insertations(+), [#Entfernt] deletions(-)
 
 
-git merge [branch_1] [branch_2]
+git merge [--no-commit] [branch_1] [branch_2]
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
   Führt zwei Zweige in einem neuen Commit zusammen. Der neue Commit wird zum
   Kopf des aktuellen Zweiges. Man sollte also aufpassen, dass man zuvor mit
-  "git brach" und "git checkout" sicherstellt, dass man sich im richtigen Zweig
-  befindet!
-  Vermutlich kann man auch zwei Zweige in einem neuen Zweig zusammenführen.
-  Falls [brach_1] vor dem Zusammenführen der aktive Zweig ist, dann wird als
-  Commit-Kommentar automatisch folgendes vorgeschlagen:
-    Merge branch '[brach_2]'
-  (zum Entfernen von [branch_2] bzw. dessen Label siehe "git
+  "git brach" und "git checkout" sicherstellt, dass man sich im richtigen Zweig,
+  d.h. im ZIELzweig befindet!
+  Vermutlich kann man auch mehr als zwei Zweige zusammenführen.
+  Der Parameter "--no-commit" ist optional und erzwingt ein manuelles
+  zusammenführen der Zweige - dies funktioniert exakt wie wenn das
+  automatische Zusammenführen fehlschlägt.
+  (zum Entfernen von [branch_2] bzw. dessen Label siehe "git branch -d")
   Anmerkung: Es genügt scheinbar auch "git merge [branch]" und den Zweig
              "branch" in den aktuell ausgewählten Zweig zusammenzuführen.
              Des Weiteren können auch mehr als 2 Zweige zusammengeführt werden,
